@@ -1,0 +1,6 @@
+---
+import katex from 'katex';
+interface Props { formula: string }
+const html = katex.renderToString(Astro.props.formula, { displayMode: true, output: 'htmlAndMathml', throwOnError: true, trust: false, strict: 'error' });
+---
+<div class="formula" role="region" aria-label="Mathematical equation; scroll horizontally if needed" tabindex="0" set:html={html} />

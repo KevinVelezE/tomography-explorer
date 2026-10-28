@@ -1,0 +1,96 @@
+:root{font-family:system-ui,sans-serif;color:#172b4d;background:#f8fafc;line-height:1.65;color-scheme:light;--ink:#172b4d;--muted:#52627a;--teal:#147d78;--blue:#3156a4;--line:#dce4ef}
+*{box-sizing:border-box}body{margin:0;overflow-wrap:anywhere}button,input,select{font:inherit}button,input,select,summary,a{touch-action:manipulation}button{cursor:pointer}button:disabled{cursor:default;opacity:.5}button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible,a:focus-visible,.formula:focus-visible{outline:3px solid var(--teal);outline-offset:4px}h1,h2,h3{font-family:Georgia,serif;font-weight:400;line-height:1.2;text-wrap:balance}h1{font-size:clamp(1.9rem,3vw,2.7rem);max-width:24ch;margin:.4rem 0 1rem}h2{font-size:1.4rem}h3{font-size:1.15rem;margin:0 0 .8rem}p{max-width:78ch;margin:0 0 1rem}a{color:var(--blue);text-underline-offset:4px}[hidden]{display:none!important}.skip{position:absolute;left:1rem;top:-6rem;background:white;padding:1rem;z-index:10}.skip:focus{top:1rem}.masthead{max-width:1280px;margin:auto;padding:24px 28px;display:flex;justify-content:space-between;align-items:center;gap:24px;border-bottom:1px solid var(--line)}.brand{font:1.5rem Georgia,serif}.byline{font-size:.8rem;color:var(--muted);margin:0}.layout{max-width:1280px;margin:auto;display:grid;grid-template-columns:190px minmax(0,1fr);gap:48px;padding:36px 28px 40px}.journey{border-right:1px solid var(--line);padding-right:22px}.journey h2{font:.85rem system-ui,sans-serif;font-weight:600;margin:0 0 18px;color:var(--muted)}.journey ol{list-style:none;margin:0 0 24px;padding:0;display:grid;gap:8px}.journey button{display:flex;gap:12px;width:100%;text-align:left;align-items:flex-start;border:0;border-left:2px solid transparent;background:transparent;padding:12px 8px;font-size:.875rem;line-height:1.4;color:var(--muted)}.journey button:hover{background:#edf2f7;color:var(--ink)}.journey button[aria-current=step]{border-left-color:var(--teal);background:#e9f3f2;color:#135f5b}.journey button span:first-child{font-variant-numeric:tabular-nums}.small,.footer-note{font-size:.8rem;color:var(--muted)}main{min-width:0}.lead{font-size:1.07rem;max-width:73ch}.operator-hint{color:#365c77;font-size:.9rem}.graphics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin:28px 0 20px}figure{margin:0;min-width:0}canvas{display:block;width:100%;height:auto;aspect-ratio:1;background:#edf2f7;border:1px solid var(--line)}figcaption{font-size:.78rem;color:var(--muted);line-height:1.55;margin-top:10px}.scale-note{display:block;font-variant-numeric:tabular-nums;margin-top:6px;color:var(--ink)}.observation{border-left:3px solid var(--teal);padding:5px 0 5px 16px;font-size:.94rem}.formula{max-width:100%;overflow-x:auto;overflow-y:hidden;padding:18px 6px;overflow-wrap:normal}.katex-display{margin:.5rem 0}.formula .katex-display>.katex{white-space:nowrap}details{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:16px 0;margin:24px 0}summary{cursor:pointer;font-weight:600;color:var(--blue);padding:6px 0}details p{font-size:.9rem;margin:16px 0}.experiment-controls{border-bottom:1px solid var(--line);padding-bottom:12px;margin:24px 0}.base-controls,.control-group{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-bottom:20px}label{display:block;font-size:.875rem;font-weight:600}input,select{display:block;width:100%;min-height:42px;margin-top:8px;accent-color:var(--teal)}select,input[type=number]{padding:6px 10px;border:1px solid #a5b5c9;border-radius:4px;color:var(--ink);background:white}output{float:right;font-weight:400;font-variant-numeric:tabular-nums}.experiment-state{font-size:.85rem;background:#edf2f7;padding:16px;margin:20px 0}#experiment-status{font-weight:600;margin-bottom:6px}#input-error{color:#a32b35}.experiment-state button{margin:6px 12px 0 0}button:not(.journey button){border:1px solid #a5b5c9;border-radius:4px;background:white;color:var(--ink);padding:9px 14px}.chapter-footer{display:flex;justify-content:space-between;gap:12px;align-items:center;border-top:1px solid var(--line);padding-top:24px;margin:28px 0 24px}#next{background:var(--blue);color:white;border-color:var(--blue)}.table-scroll{overflow-x:auto;max-width:100%}table{border-collapse:collapse;width:100%;font-size:.86rem;font-variant-numeric:tabular-nums}caption{text-align:left;padding:8px 0;color:var(--muted)}td,th{text-align:left;padding:10px;border-bottom:1px solid var(--line);white-space:nowrap}.fallback{margin:24px auto;padding:20px;max-width:1000px;border:2px solid var(--teal)}
+.table-scroll:focus-visible{outline:3px solid var(--teal);outline-offset:4px}
+@media(max-width:900px){.layout{grid-template-columns:150px minmax(0,1fr);gap:24px;padding:28px 20px}.journey{padding-right:12px}.masthead{padding:20px}.graphics{gap:16px}}
+@media(max-width:650px){.masthead{display:block}.byline{margin-top:8px}.layout{display:block;padding:24px 16px}.journey{border-right:0;border-bottom:1px solid var(--line);padding:0;margin-bottom:24px}.journey ol{grid-template-columns:repeat(2,minmax(0,1fr));gap:4px}.journey button{font-size:.8rem;padding:10px 6px}.journey>.small{display:none}.graphics{gap:24px;grid-template-columns:1fr}.base-controls,.control-group{gap:16px;grid-template-columns:1fr}.chapter-footer{font-size:.8rem}.chapter-footer button{padding:8px}.footer-note{font-size:.75rem}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+
+/* The experiment is one visual unit: controls, primary comparison, its state.
+   Supporting panels and mathematical discussion follow, rather than separating
+   a slider from the image it changes. */
+.interactive-experiment {
+  margin: 24px 0;
+}
+.interactive-experiment .experiment-controls {
+  margin: 0;
+  padding: 16px 0 4px;
+  border-top: 1px solid var(--line);
+  border-bottom: 0;
+}
+.interactive-experiment .base-controls,
+.interactive-experiment .control-group {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 24px;
+  margin-bottom: 12px;
+}
+.interactive-experiment input[type=range] {
+  min-height: 28px;
+  margin-top: 4px;
+}
+.interactive-experiment .primary-panels {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 10px 0 16px;
+}
+.primary-panels h3 {
+  min-height: 2.4em;
+  margin-bottom: 8px;
+}
+.interactive-experiment .experiment-state {
+  margin: 16px 0;
+}
+.interactive-experiment label {
+  min-width: 0;
+}
+.interactive-experiment output {
+  margin-left: 6px;
+}
+.preview-indicator {
+  font-size: .8rem;
+  line-height: 1.5;
+  color: var(--muted);
+  margin: 6px 0 0;
+  font-variant-numeric: tabular-nums;
+}
+.auxiliary-comparison {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+.auxiliary-comparison .graphics {
+  grid-template-columns: minmax(0, 1fr);
+}
+.auxiliary-comparison > .graphics {
+  align-self: end;
+}
+.supporting-controls {
+  padding-top: 12px;
+}
+@media (max-width: 650px) {
+  .auxiliary-comparison {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+  .interactive-experiment .base-controls,
+  .interactive-experiment .control-group {
+    gap: 8px 14px;
+    margin-bottom: 10px;
+  }
+  .interactive-experiment .primary-panels {
+    gap: 12px;
+  }
+  .interactive-experiment label {
+    font-size: .78rem;
+  }
+  .interactive-experiment input[type=number],
+  .interactive-experiment select {
+    padding: 6px;
+    font-size: .8rem;
+  }
+  .primary-panels h3 {
+    font-size: 1rem;
+    min-height: 3.6em;
+  }
+  .primary-panels figcaption {
+    font-size: .75rem;
+  }
+}

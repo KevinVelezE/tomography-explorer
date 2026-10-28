@@ -1,0 +1,10 @@
+---
+interface Props { panels: readonly (readonly [string, string, string])[]; primary?: boolean }
+---
+<div class:list={['graphics', Astro.props.primary ? 'primary-panels' : 'auxiliary-panels']}>
+  {Astro.props.panels.map(([title, kind, caption]) => <figure>
+    <h3>{title}</h3>
+    <canvas width="512" height="512" data-kind={kind} role="img" aria-label={`${title}. ${caption}`} />
+    <figcaption>{caption}<span class="scale-note" data-scale></span></figcaption>
+  </figure>)}
+</div>

@@ -1,0 +1,50 @@
+---
+import { chapters } from '../content/chapters';
+import Math from './Math.astro';
+import ExperimentPanels from './ExperimentPanels.astro';
+import ExperimentControls from './ExperimentControls.astro';
+const primaryKinds: readonly (readonly string[])[] = [['object', 'profile'], ['sinogram', 'profile'], ['reference', 'bp'], ['spectrum', 'radial'], ['selected', 'error'], ['ramp', 'hann']];
+---
+<div class="layout">
+  <aside class="journey"><nav aria-label="Learning journey"><h2>The guided journey</h2><ol>
+    {chapters.map((chapter, i) => <li><button type="button" data-step={i} aria-current={i === 0 ? 'step' : undefined}><span>{i + 1}</span><span>{chapter.label}</span></button></li>)}
+  </ol></nav><p class="small">Follow the sequence, or return to any chapter. Each step asks one question.</p></aside>
+  <main id="workspace" tabindex="-1">
+    <p id="chapter-progress" class="small">Step 1 of 6</p>
+    {chapters.map((chapter, i) => <section class="chapter" data-chapter={i} hidden={i !== 0} aria-labelledby={`title-${i}`}>
+      <h1 id={`title-${i}`} tabindex="-1">{chapter.title}</h1>
+      <p class="lead">{chapter.lead}</p><p class="operator-hint">{chapter.hint}</p>
+      <div class="interactive-experiment" data-interactive>
+        <div data-controls-slot>{i === 0 && <ExperimentControls />}</div>
+        <p class="preview-indicator" data-preview-label>No calculated result yet.</p>
+        <ExperimentPanels panels={chapter.panels.filter(panel => primaryKinds[i].includes(panel[1]))} primary />
+        <div data-state-slot></div>
+        <div data-metrics-slot></div>
+      </div>
+      {i === 5 ? <div class="auxiliary-comparison">
+        <ExperimentPanels panels={chapter.panels.filter(panel => panel[1] === 'reference')} />
+        <div data-error-comparison>
+          <div class="supporting-controls" data-filter-choice-slot></div>
+          <ExperimentPanels panels={chapter.panels.filter(panel => panel[1] === 'error')} />
+        </div>
+      </div> : chapter.panels.some(panel => !primaryKinds[i].includes(panel[1])) && <ExperimentPanels panels={chapter.panels.filter(panel => !primaryKinds[i].includes(panel[1]))} />}
+      <p class="observation">{chapter.observation}</p>
+      <details><summary>A little mathematics</summary><p>{chapter.intro}</p><Math formula={chapter.formula} /><p>{chapter.note}</p></details>
+    </section>)}
+    <section class="experiment-state" aria-label="Calculation state" aria-busy="true" id="calculation">
+      <p id="experiment-status" role="status" data-status="calculating">Calculating the initial experiment…</p>
+      <p id="experiment-summary">No calculated result yet.</p>
+      <p class="small">Controls persist between chapters. Changing angle, detector or displayed filter does not recompute the experiment.</p>
+      <p id="input-error" role="alert" hidden></p>
+      <button id="retry" type="button" hidden>Retry calculation</button>
+      <button id="export" type="button" disabled>Export experiment JSON</button>
+    </section>
+    <section id="metrics" aria-label="Reconstruction errors" hidden>
+      <h2>Errors on the declared region</h2>
+      <p class="small">Unclipped data, within x²+y² ≤ 0.9². Relative L2 is undefined for a zero reference. These errors do not describe clinical image quality.</p>
+      <div class="table-scroll" role="region" aria-label="Reconstruction errors; scroll horizontally if needed" tabindex="0"><table><caption>Calculated reconstruction errors</caption><thead><tr><th scope="col">Filter</th><th scope="col">RMSE</th><th scope="col">Relative L2</th><th scope="col">ROI samples</th></tr></thead><tbody><tr><th scope="row">Ramp</th><td id="ramp-rmse"></td><td id="ramp-relative"></td><td id="ramp-count"></td></tr><tr><th scope="row">Hann</th><td id="hann-rmse"></td><td id="hann-relative"></td><td id="hann-count"></td></tr></tbody></table></div>
+    </section>
+    <div class="chapter-footer"><button id="previous" type="button" disabled>Previous step</button><span id="footer-progress">1 / 6</span><button id="next" type="button">Next step</button></div>
+    <p class="footer-note">Parallel-beam geometry in two dimensions. Synthetic objects only. Educational experiment; no clinical or diagnostic use. All calculations run locally in your browser.</p>
+  </main>
+</div>

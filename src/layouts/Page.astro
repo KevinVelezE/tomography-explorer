@@ -1,0 +1,11 @@
+---
+import 'katex/dist/katex.min.css';
+import '../styles/global.css';
+---
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="description" content="An interactive, browser-calculated introduction to projections, Fourier analysis and tomographic reconstruction." /><title>Tomography, step by step</title></head>
+<body><a class="skip" href="#workspace">Skip to experiment</a><header class="masthead"><div class="brand">Tomography, step by step</div><p class="byline">A guided exploration by Kevin Vélez Escarria</p></header>
+<noscript><p class="fallback">JavaScript and Web Workers are required for the interactive calculations. The explanations and mathematics below remain readable; no reconstruction values are shown without a calculation.</p><style>.chapter[hidden]{display:block!important}.experiment-controls,.experiment-state,.chapter-footer,canvas,.journey{display:none!important}</style></noscript>
+<slot />
+<script>import '../ui/app';</script>
+</body></html>
